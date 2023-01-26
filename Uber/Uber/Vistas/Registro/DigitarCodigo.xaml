@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Uber.Vistas.Registro.DigitarCodigo"
+             xmlns:material="clr-namespace:Plugin.MaterialDesignControls;assembly=Plugin.MaterialDesignControls">
+    <StackLayout Padding="20"
+                 BackgroundColor="White"
+                 Spacing="20">
+
+        <Label Text="Ingrese el código de 4 dihitos que hemos enviado al 3003930912 "
+               FontSize="Medium"
+               TextColor="Black"/>
+
+        <Grid ColumnDefinitions="*,*">
+            <material:MaterialCodeEntry Length="4"
+                                        Keyboard="Numeric"
+                                        FontSize="20"
+                                        Background="#F6F6F6"
+                                        BorderColor="#F6F6F6"
+                                        Text="{Binding Txtcodigo }"/>
+        </Grid>
+
+        <Frame CornerRadius="20"
+               HorizontalOptions="Start"
+               Padding="20,8"
+               HasShadow="False"
+               BackgroundColor="#F6F6F6"
+               >
+            <Label Text="No recibí el código 0:30"/>
+            
+
+        </Frame>
+
+        <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" >
+            <Frame HasShadow="False"
+                   BackgroundColor="#EEEEEE"
+                   CornerRadius="35"
+                   VerticalOptions="Center">
+                <Image Source="https://i.ibb.co/mTyKTP6/flecha-hacia-abajo-para-navegar.png"
+                       HeightRequest="30"/>
+            </Frame>
+            <Frame  HorizontalOptions="EndAndExpand" 
+                    Margin="0,20"
+                    BackgroundColor="Black"
+                    CornerRadius="30"
+                    Padding="15">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Siguiente"
+                        TextColor="White"
+                        BackgroundColor="Black"
+                        TextTransform="None"
+                        FontAttributes="Bold"
+                        VerticalOptions="Center"/>
+
+                    <Image Source="https://i.ibb.co/8DSHghW/flecha-correcta.png"
+                       HeightRequest="30"
+                       HorizontalOptions="End"
+                       Margin="0,0,18,0"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding validarcommad}"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+
+            </Frame>
+        </StackLayout>
+
+
+
+
+    </StackLayout>
+</ContentPage>

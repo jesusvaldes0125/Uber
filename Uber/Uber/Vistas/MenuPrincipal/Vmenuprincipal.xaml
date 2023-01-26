@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Uber.Vistas.MenuPrincipal.Vmenuprincipal"
+             xmlns:maps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
+             xmlns:toolkit="http://xamarin.com/schemas/2020/toolkit">
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior EventName="Appearing"
+                                        Command="{Binding ValidarCommand}"/>
+    </ContentPage.Behaviors>
+    <StackLayout Padding="20"
+                 BackgroundColor="White"
+                 Spacing="18">
+        
+        <Image Source="https://assets.stickpng.com/images/585e4beacb11b227491c3399.png"
+               HorizontalOptions="End"
+               HeightRequest="20"
+               />
+        
+        <Frame Padding="0" 
+               CornerRadius="10"
+               HasShadow="False"
+               BackgroundColor="#E3DDF2"
+              >
+            <Grid ColumnDefinitions="Auto,Auto">
+                <StackLayout VerticalOptions="Center" 
+                             Padding="30">
+                    <Label Text="Listo vamos a ello!"
+                           TextColor="Black"
+                           FontSize="Medium"
+                           FontAttributes="Bold"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Viajar con uber"
+                               TextColor="Black"
+                               FontSize="Body"
+                           />
+                        
+                    </StackLayout>
+                </StackLayout>
+                <Image Source="https://www.lostiempos.com/sites/default/files/media_imagen/2019/12/6/02.jpg"
+                               Aspect="AspectFill"
+                               HeightRequest="100"
+                               Grid.Column="1" 
+                               VerticalOptions="FillAndExpand"
+                               HorizontalOptions="FillAndExpand"/>
+            </Grid>
+        </Frame>
+
+        <Frame BackgroundColor="#EDEDED"
+               CornerRadius="10"
+               HasShadow="False"
+               Padding="15,10">
+            <Label Text="¿A donde vamos?"
+                   FontSize="Large"
+                   TextColor="Black"/>
+        </Frame>
+
+        <StackLayout Orientation="Horizontal">
+            <Frame BackgroundColor="#EEEEEE"
+                   VerticalOptions="Center"
+                   CornerRadius="30"
+                   Padding="10">
+                <Image Source="https://cdn-icons-png.flaticon.com/512/1828/1828961.png"
+                       HeightRequest="15"/>
+            </Frame>
+
+            <Label Text="Elegir un favorito"
+                   VerticalOptions="Center"
+                   FontSize="Subtitle"
+                   TextColor="Black"
+                   FontAttributes="Bold"/>
+            <Image Source="https://i.ibb.co/NLK2cBW/flecha-hacia-abajo-para-navegar-2.png"
+                   HeightRequest="20"
+                   HorizontalOptions="EndAndExpand"/>
+
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Frame BackgroundColor="#EEEEEE"
+                   VerticalOptions="Center"
+                   CornerRadius="30"
+                   Padding="10">
+                <Image Source="https://i.ibb.co/syVLBbc/alfiler.png"
+                       HeightRequest="15"/>
+            </Frame>
+
+            <Label Text="Elegir destino en el mapa"
+                   VerticalOptions="Center"
+                   FontSize="Subtitle"
+                   TextColor="Black"
+                   FontAttributes="Bold"/>
+            <Image Source="https://i.ibb.co/NLK2cBW/flecha-hacia-abajo-para-navegar-2.png"
+                   HeightRequest="20"
+                   HorizontalOptions="EndAndExpand"/>
+
+        </StackLayout>
+        <Label Text="A tu alrededor"
+               FontSize="Medium"
+               TextColor="Black"/>
+        <Frame VerticalOptions="FillAndExpand"
+               CornerRadius="20"
+               Padding="0"
+               HasShadow="False">
+            <maps:Map />
+        </Frame>
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Uber.Vistas.Registro.CompletarReg"
+             Visual="Material"
+             xmlns:svg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms">
+    <StackLayout BackgroundColor="White" Padding="15">
+        <Label Text="Confirma tu información"
+               TextColor="Black"
+               FontSize="Title"
+               FontAttributes="Bold"/>
+        <Grid ColumnDefinitions="*,*">
+            <Frame Background="#EEEEEE"
+                   HasShadow="False"
+                   CornerRadius="10"
+                   Padding="5"
+                   Margin="0,0,10,0">
+                <Entry Placeholder="Ingresa tu nombre"
+                       Background="#EEEEEE"
+                       Text="{Binding _googleUserRecibe.Name}"/>
+            </Frame>
+            <Frame Background="#EEEEEE"
+                   HasShadow="False"
+                   CornerRadius="10"
+                   Padding="5"
+                   Grid.Column="1">
+                <Entry Placeholder="Ingresa tu apellido"
+                       Background="#EEEEEE"
+                       Text="{Binding _googleUserRecibe.Apellido}"/>
+            </Frame>
+        </Grid>
+
+        <StackLayout Orientation="Horizontal"
+                     Margin="0,9,0,0">
+            <Frame BackgroundColor="#EEEEEE"
+                   CornerRadius="8"
+                   HasShadow="False">
+                <StackLayout Orientation="Horizontal">
+                    <svg:SvgCachedImage Source="{ Binding SelectPaisDefault.Iconourl}"
+                                        HeightRequest="26"
+                                        WidthRequest="26"
+                                        Margin="5"/>
+                    <Image Source="https://i.ibb.co/x2TsLFN/botondeplay.png" 
+                           HeightRequest="9"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{ Binding IrpaisesCommand}"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                
+            </Frame>
+
+            <Frame HorizontalOptions="FillAndExpand"
+                   Padding="10,5"
+                   CornerRadius="8"
+                   HasShadow="False"
+                   BackgroundColor="#EEEEEE">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="{Binding SelectPaisDefault.Codigopais, StringFormat='+{0}'}"
+                           TextColor="Black"
+                           FontSize="Medium"
+                           VerticalOptions="Center"/>
+                    <Entry BackgroundColor="#EEEEEE"
+                           Placeholder="Numero de movil"
+                           HorizontalOptions="FillAndExpand"
+                           Keyboard="Telephone"
+                           Text="{Binding TxtNumero}"/>
+
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" >
+            <Frame HasShadow="False"
+                   BackgroundColor="#EEEEEE"
+                   CornerRadius="35"
+                   VerticalOptions="Center">
+                <Image Source="https://i.ibb.co/mTyKTP6/flecha-hacia-abajo-para-navegar.png"
+                       HeightRequest="30"/>
+            </Frame>
+            <Frame  HorizontalOptions="EndAndExpand" 
+                    Margin="0,20"
+                    BackgroundColor="Black"
+                    CornerRadius="30"
+                    Padding="15">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Siguiente"
+                        TextColor="White"
+                        BackgroundColor="Black"
+                        TextTransform="None"
+                        FontAttributes="Bold"
+                        VerticalOptions="Center"/>
+
+                    <Image Source="https://i.ibb.co/8DSHghW/flecha-correcta.png"
+                       HeightRequest="30"
+                       HorizontalOptions="End"
+                       Margin="0,0,18,0"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SiguienteCommand}"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                
+            </Frame>
+        </StackLayout>
+        
+
+    </StackLayout>
+</ContentPage>
