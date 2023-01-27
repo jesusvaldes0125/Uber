@@ -15,7 +15,7 @@ namespace Uber
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new Adondevamos());
+            MainPage = new NavigationPage(new Esperaroferta());
         }
 
         protected override void OnStart()

@@ -22,3 +22,4 @@ C:\Users\Jesus\source\repos\Uber\Uber\Uber\obj\Debug\netstandard2.0\refint\Uber.
 C:\Users\Jesus\source\repos\Uber\Uber\Uber\obj\Debug\netstandard2.0\Uber.pdb
 C:\Users\Jesus\source\repos\Uber\Uber\Uber\obj\Debug\netstandard2.0\ref\Uber.dll
 C:\Users\Jesus\source\repos\Uber\Uber\Uber\obj\Debug\netstandard2.0\Vistas\Navegacion\Esperarofertas.xaml.g.cs
+C:\Users\Jesus\source\repos\Uber\Uber\Uber\obj\Debug\netstandard2.0\Vistas\Navegacion\Listchoferes.xaml.g.cs

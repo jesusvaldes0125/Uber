@@ -10,6 +10,7 @@
       "Uber/1.0.0": {
         "dependencies": {
           "FirebaseDatabase.net": "4.1.0",
+          "JimBobBennett.AnimatedProgress": "1.1.0",
           "NETStandard.Library": "2.0.3",
           "Plugin.MaterialDesignControls": "1.12.0",
           "Rg.Plugins.Popup": "2.1.0",
@@ -37,6 +38,17 @@
           "lib/netstandard2.0/Firebase.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "JimBobBennett.AnimatedProgress/1.1.0": {
+        "dependencies": {
+          "Xamarin.Forms": "5.0.0.2545"
+        },
+        "runtime": {
+          "lib/portable46-net451+win81/JimBobBennett.AnimatedProgress.dll": {
+            "assemblyVersion": "1.0.6403.36963",
+            "fileVersion": "1.0.6403.36963"
           }
         }
       },
@@ -590,6 +602,13 @@
       "sha512": "sha512-tK+kihepwbd2fY8MZtNjApnUWW1B260E5z3lK9f2BPf1QCP4powhJml+pBhJ91KmtsKDlEoe94j5C5YWlSJISw==",
       "path": "firebasedatabase.net/4.1.0",
       "hashPath": "firebasedatabase.net.4.1.0.nupkg.sha512"
+    },
+    "JimBobBennett.AnimatedProgress/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-QPi/PRT+Mr2Fkpa5rvTM21T3bC7YzWdi8A/JKcKPKZmBInw5ote+3tUVD8hXIoLsxnBMnuVELKWV3re3T67xrQ==",
+      "path": "jimbobbennett.animatedprogress/1.1.0",
+      "hashPath": "jimbobbennett.animatedprogress.1.1.0.nupkg.sha512"
     },
     "libphonenumber-csharp/8.13.4": {
       "type": "package",

@@ -20,6 +20,18 @@
           }
         }
       },
+      "JimBobBennett.AnimatedProgress/1.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "2.3.4.247"
+        },
+        "compile": {
+          "lib/portable46-net451+win81/JimBobBennett.AnimatedProgress.dll": {}
+        },
+        "runtime": {
+          "lib/portable46-net451+win81/JimBobBennett.AnimatedProgress.dll": {}
+        }
+      },
       "libphonenumber-csharp/8.13.4": {
         "type": "package",
         "dependencies": {
@@ -897,6 +909,18 @@
         "firebasedatabase.net.nuspec",
         "lib/netstandard2.0/Firebase.dll",
         "lib/netstandard2.0/Firebase.xml"
+      ]
+    },
+    "JimBobBennett.AnimatedProgress/1.1.0": {
+      "sha512": "QPi/PRT+Mr2Fkpa5rvTM21T3bC7YzWdi8A/JKcKPKZmBInw5ote+3tUVD8hXIoLsxnBMnuVELKWV3re3T67xrQ==",
+      "type": "package",
+      "path": "jimbobbennett.animatedprogress/1.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "jimbobbennett.animatedprogress.1.1.0.nupkg.sha512",
+        "jimbobbennett.animatedprogress.nuspec",
+        "lib/portable46-net451+win81/JimBobBennett.AnimatedProgress.dll"
       ]
     },
     "libphonenumber-csharp/8.13.4": {
@@ -3534,6 +3558,7 @@
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
       "FirebaseDatabase.net >= 4.1.0",
+      "JimBobBennett.AnimatedProgress >= 1.1.0",
       "NETStandard.Library >= 2.0.3",
       "Plugin.MaterialDesignControls >= 1.12.0",
       "Rg.Plugins.Popup >= 2.1.0",
@@ -3596,6 +3621,10 @@
           "FirebaseDatabase.net": {
             "target": "Package",
             "version": "[4.1.0, )"
+          },
+          "JimBobBennett.AnimatedProgress": {
+            "target": "Package",
+            "version": "[1.1.0, )"
           },
           "NETStandard.Library": {
             "suppressParent": "All",
@@ -3662,5 +3691,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "El paquete \"JimBobBennett.AnimatedProgress 1.1.0\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \".NETStandard,Version=v2.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
+      "libraryId": "JimBobBennett.AnimatedProgress",
+      "targetGraphs": [
+        ".NETStandard,Version=v2.0"
+      ]
+    }
+  ]
 }

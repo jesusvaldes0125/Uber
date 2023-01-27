@@ -15,7 +15,7 @@ using Xamarin.Forms.GoogleMaps;
 
 namespace Uber.VistaModelo
 {
-    public class VMadondevamos:BaseViewModel
+    public class VMadondevamos : BaseViewModel
     {
         #region VARIABLES
         List<GooglePlaceAutoCompletePrediction> _listadirecciones;
@@ -43,15 +43,15 @@ namespace Uber.VistaModelo
         #region CONSTRUCTOR
         public VMadondevamos(INavigation navigation, Xamarin.Forms.GoogleMaps.Map mapareferencia)
         {
-            Navigation=navigation;
-            mapa=mapareferencia;
+            Navigation = navigation;
+            mapa = mapareferencia;
             mapa.PropertyChanged += Mapa_PropertyChanged;
-            EnableTxtorigen=false;
-            EnableTxtdestino=false;
-            Selectorigen=false;
-            Selectdestino=false;
-            VisibleListdirec=false;
-            Fijarenmapa=false;
+            EnableTxtorigen = false;
+            EnableTxtdestino = false;
+            Selectorigen = false;
+            Selectdestino = false;
+            VisibleListdirec = false;
+            Fijarenmapa = false;
             VisibleOfertar = false;
             Txtbuscador = "";
             PinActual();
@@ -142,12 +142,12 @@ namespace Uber.VistaModelo
         [Obsolete]
         private async void Mapa_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            if (Fijarenmapa==false)
+            if (Fijarenmapa == false)
             {
                 return;
             }
             var m = (Xamarin.Forms.GoogleMaps.Map)sender;
-            if (m.VisibleRegion!=null) 
+            if (m.VisibleRegion != null)
             {
                 if (Selectorigen == true)
                 {
@@ -157,18 +157,18 @@ namespace Uber.VistaModelo
                 }
                 if (Selectdestino == true)
                 {
-                    Txtdestino= await ObtenerDireccion(m.VisibleRegion.Center.Latitude, m.VisibleRegion.Center.Longitude);
+                    Txtdestino = await ObtenerDireccion(m.VisibleRegion.Center.Latitude, m.VisibleRegion.Center.Longitude);
                     ltDestino = m.VisibleRegion.Center.Latitude;
                     lgDestino = m.VisibleRegion.Center.Longitude;
                 }
             }
         }
-        private async Task<string>ObtenerDireccion(double lt, double lg)
+        private async Task<string> ObtenerDireccion(double lt, double lg)
         {
             try
             {
                 Geocoder geoCoder = new Geocoder();
-                Position position= new Position(lt, lg);
+                Position position = new Position(lt, lg);
                 IEnumerable<string> direcciones = await geoCoder.GetAddressesForPositionAsync(position);
                 string direccion = direcciones.FirstOrDefault();
                 return direccion;
@@ -178,13 +178,13 @@ namespace Uber.VistaModelo
                 Console.WriteLine(ex.Message);
                 return ex.Message;
             }
-        }        
+        }
         private void FijarenMapa()
         {
             Fijarenmapa = true;
             VisibleListdirec = false;
-            EnableTxtorigen= false;
-            EnableTxtdestino= false;
+            EnableTxtorigen = false;
+            EnableTxtdestino = false;
         }
         public async Task PinActual()
         {
@@ -204,15 +204,16 @@ namespace Uber.VistaModelo
             try
             {
                 var location = await Geolocation.GetLastKnownLocationAsync();
-                if (location==null)
+                if (location == null)
                 {
-                    location=await Geolocation.GetLocationAsync(new GeolocationRequest
+                    location = await Geolocation.GetLocationAsync(new GeolocationRequest
                     {
-                        DesiredAccuracy=GeolocationAccuracy.High,Timeout=TimeSpan.FromSeconds(30)
-                    }); 
-                    
+                        DesiredAccuracy = GeolocationAccuracy.High,
+                        Timeout = TimeSpan.FromSeconds(30)
+                    });
+
                 }
-                if (location!=null)
+                if (location != null)
                 {
                     ltOrigen = location.Latitude;
                     lgOrigen = location.Longitude;
@@ -227,12 +228,12 @@ namespace Uber.VistaModelo
 
                 Console.WriteLine(ex.Message);
             }
-        }        
+        }
         private async Task Buscardirecciones(string buscador)
         {
             var places = await _googleMapsApi.ApiPlaces(buscador);
             var placeResults = places.AutoCompletePlaces;
-            if(placeResults!=null && placeResults.Count>0)
+            if (placeResults != null && placeResults.Count > 0)
             {
                 Listadirecciones = new List<GooglePlaceAutoCompletePrediction>(placeResults);
             }
@@ -242,18 +243,18 @@ namespace Uber.VistaModelo
             var coordenadas = await _googleMapsApi.ApiPlacesDetails(parametros.PlaceId);
             if (coordenadas != null)
             {
-                if (Selectorigen==true)
+                if (Selectorigen == true)
                 {
                     ltOrigen = coordenadas.Latitude;
                     lgOrigen = coordenadas.Longitude;
-                    Txtorigen= coordenadas.Name;
+                    Txtorigen = coordenadas.Name;
 
                 }
-                if(Selectdestino== true)
+                if (Selectdestino == true)
                 {
-                    ltDestino= coordenadas.Latitude;
-                    lgDestino= coordenadas.Longitude;
-                    Txtdestino= coordenadas.Name;
+                    ltDestino = coordenadas.Latitude;
+                    lgDestino = coordenadas.Longitude;
+                    Txtdestino = coordenadas.Name;
                 }
                 VisibleListdirec = false;
             }
@@ -262,8 +263,8 @@ namespace Uber.VistaModelo
         {
             Selectorigen = true;
             Selectdestino = false;
-            EnableTxtorigen= true;
-            EnableTxtdestino= false;
+            EnableTxtorigen = true;
+            EnableTxtdestino = false;
             VisibleListdirec = true;
             Fijarenmapa = false;
             Txtbuscador = "";
@@ -280,24 +281,46 @@ namespace Uber.VistaModelo
         }
         private async void Insetarpedido()
         {
-            var Coororigen = ltOrigen.ToString().Replace(",",".")+","+lgOrigen.ToString().Replace(",",".");
-            var Coordestino = ltDestino.ToString().Replace(",", ".")+","+lgDestino.ToString().Replace(",", ".");
-            ParametosMatrix = await _googleMapsApi.Calculardistanciatiempo(Coororigen, Coordestino);
-            var funcion = new Dpedidos();
-            var parametros = new Mpedidos();
-            parametros.origen_lugar = Txtorigen;
-            parametros.destino_lugar = Txtdestino;
-            parametros.idchofer = "Modelo";
-            parametros.iduser = "Modelo";
-            parametros.lt_lg_origen= Coororigen;
-            parametros.lt_lg_destino = Coordestino;
-            parametros.estado="PENDIENTE";
-            parametros.tiempo=ParametosMatrix.Rows[0].Elements[0].duration.text;
-            parametros.tarifa=Txttarifa;
-            parametros.distancia=ParametosMatrix.Rows[0].Elements[0].distance.value.ToString();
-            await funcion.Insertarpedidos(parametros);
-            await Navigation.PushAsync(new Esperaroferta(parametros));
-          
+            if (!string.IsNullOrWhiteSpace(Txtorigen))
+            {
+                if (!string.IsNullOrWhiteSpace(Txtdestino))
+                {
+                    if (!string.IsNullOrWhiteSpace(Txttarifa))
+                    {
+                        var Coororigen = ltOrigen.ToString().Replace(",", ".") + "," + lgOrigen.ToString().Replace(",", ".");
+                        var Coordestino = ltDestino.ToString().Replace(",", ".") + "," + lgDestino.ToString().Replace(",", ".");
+                        ParametosMatrix = await _googleMapsApi.Calculardistanciatiempo(Coororigen, Coordestino);
+                        var funcion = new Dpedidos();
+                        var parametros = new Mpedidos();
+                        parametros.origen_lugar = Txtorigen;
+                        parametros.destino_lugar = Txtdestino;
+                        parametros.idchofer = "Modelo";
+                        parametros.iduser = "Modelo";
+                        parametros.lt_lg_origen = Coororigen;
+                        parametros.lt_lg_destino = Coordestino;
+                        parametros.estado = "PENDIENTE";
+                        parametros.tiempo = ParametosMatrix.Rows[0].Elements[0].duration.text;
+                        parametros.tarifa = Txttarifa;
+                        parametros.distancia = ParametosMatrix.Rows[0].Elements[0].distance.value.ToString();
+                        await funcion.Insertarpedidos(parametros);
+                        await Navigation.PushAsync(new Esperaroferta());
+                    }
+                    else
+                    {
+                        await DisplayAlert("Faltan datos", "Ingrese una tarifa", "Ok");
+                    }
+                }
+                else
+                {
+                    await DisplayAlert("Faltan datos", "Seleccione un destino", "Ok");
+                }
+            }
+            else
+            {
+                await DisplayAlert("Faltan datos", "Seleccione un origen", "Ok");
+            }
+
+
         }
 
         private void Volverdebuscar()
@@ -313,8 +336,8 @@ namespace Uber.VistaModelo
         public ICommand CerrarOfertacommand => new Command(Cerraroferta);
         public ICommand VerOfertarcommand => new Command(VerOfertar);
         public ICommand Fijarenmapacommand => new Command(FijarenMapa);
-        public ICommand SelectDireccioncommand => new Command<GooglePlaceAutoCompletePrediction>(async(p) => await SeleccionarDireccion(p));
-        public ICommand Buscarcommand => new Command<string>(async (p) => await Buscardirecciones (p));
+        public ICommand SelectDireccioncommand => new Command<GooglePlaceAutoCompletePrediction>(async (p) => await SeleccionarDireccion(p));
+        public ICommand Buscarcommand => new Command<string>(async (p) => await Buscardirecciones(p));
         public ICommand SelectOrigencommand => new Command(SeleccionarOrigen);
         public ICommand SelectDestinocommand => new Command(SeleccionarDestino);
 

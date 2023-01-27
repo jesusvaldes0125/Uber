@@ -11,6 +11,7 @@ public class MonoPackageManager_Resources {
 		"FFImageLoading.Svg.Platform.dll",
 		"Firebase.dll",
 		"FormsViewGroup.dll",
+		"JimBobBennett.AnimatedProgress.dll",
 		"LiteDB.dll",
 		"Microsoft.Bcl.AsyncInterfaces.dll",
 		"Microsoft.IdentityModel.Abstractions.dll",

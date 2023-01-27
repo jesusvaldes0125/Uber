@@ -20,6 +20,18 @@
           }
         }
       },
+      "JimBobBennett.AnimatedProgress/1.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "2.3.4.247"
+        },
+        "compile": {
+          "lib/portable46-net451+win81/JimBobBennett.AnimatedProgress.dll": {}
+        },
+        "runtime": {
+          "lib/portable46-net451+win81/JimBobBennett.AnimatedProgress.dll": {}
+        }
+      },
       "libphonenumber-csharp/8.13.4": {
         "type": "package",
         "dependencies": {
@@ -3783,6 +3795,7 @@
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "FirebaseDatabase.net": "4.1.0",
+          "JimBobBennett.AnimatedProgress": "1.1.0",
           "Plugin.MaterialDesignControls": "1.12.0",
           "Rg.Plugins.Popup": "2.1.0",
           "Sharpnado.Shadows": "1.2.1",
@@ -3816,6 +3829,18 @@
         "firebasedatabase.net.nuspec",
         "lib/netstandard2.0/Firebase.dll",
         "lib/netstandard2.0/Firebase.xml"
+      ]
+    },
+    "JimBobBennett.AnimatedProgress/1.1.0": {
+      "sha512": "QPi/PRT+Mr2Fkpa5rvTM21T3bC7YzWdi8A/JKcKPKZmBInw5ote+3tUVD8hXIoLsxnBMnuVELKWV3re3T67xrQ==",
+      "type": "package",
+      "path": "jimbobbennett.animatedprogress/1.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "jimbobbennett.animatedprogress.1.1.0.nupkg.sha512",
+        "jimbobbennett.animatedprogress.nuspec",
+        "lib/portable46-net451+win81/JimBobBennett.AnimatedProgress.dll"
       ]
     },
     "libphonenumber-csharp/8.13.4": {
@@ -7878,6 +7903,7 @@
   "projectFileDependencyGroups": {
     "MonoAndroid,Version=v13.0": [
       "FirebaseDatabase.net >= 4.1.0",
+      "JimBobBennett.AnimatedProgress >= 1.1.0",
       "Plugin.CurrentActivity >= 2.1.0.4",
       "Plugin.MaterialDesignControls >= 1.12.0",
       "Rg.Plugins.Popup >= 2.1.0",
@@ -7942,6 +7968,10 @@
           "FirebaseDatabase.net": {
             "target": "Package",
             "version": "[4.1.0, )"
+          },
+          "JimBobBennett.AnimatedProgress": {
+            "target": "Package",
+            "version": "[1.1.0, )"
           },
           "Plugin.CurrentActivity": {
             "target": "Package",
